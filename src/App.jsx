@@ -56,10 +56,14 @@ function App() {
 
   useEffect(() => {
     const fetchProductsData = async () => {
-      const res = await fetch("https://dummyjson.com/products?limit=194");
-      if (!res) return;
-      const data = await res.json();
-      setProducts(data.products);
+      try {
+        const res = await fetch("https://dummyjson.com/products?limit=194");
+        if (!res) return;
+        const data = await res.json();
+        setProducts(data.products);
+      } catch (error) {
+        console.log("Failed to fetch products:", error);
+      }
     };
     fetchProductsData();
   }, []);
