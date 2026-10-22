@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  @apply bg-white dark:bg-black text-black dark:text-white;
+  margin: 0;
+}
+
+@theme {
+  --breakpoint-break: 800px;
+  --breakpoint-middle: 690px;
+}
+
+.svg-white {
+  filter: invert(100%);
+}
+
+.bebas {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+@keyframes twist {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-25deg);
+  }
+  70% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-rotate {
+  animation: twist 0.4s ease-in-out;
+}
